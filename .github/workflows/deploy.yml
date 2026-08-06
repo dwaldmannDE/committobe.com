@@ -1,0 +1,23 @@
+name: Deploy
+
+on:
+  push:
+    branches: [main]
+
+concurrency: deploy
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Deploy index.html
+        env:
+          SSH_KEY: ${{ secrets.DEPLOY_SSH_KEY }}
+        run: |
+          install -d -m 700 ~/.ssh
+          printf '%s\n' "$SSH_KEY" > ~/.ssh/id_ed25519
+          chmod 600 ~/.ssh/id_ed25519
+          echo 'business-webhosting.eu ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIPPfcdf/ICcEkghCtG9GtQMr7n9LYb051vjqom1GPGtP' > ~/.ssh/known_hosts
+          scp index.html sarahrapp@business-webhosting.eu:/www/committobe.com/index.html
