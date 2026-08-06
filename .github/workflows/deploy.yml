@@ -11,11 +11,7 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
-      - name: Fetch pushed commit
-        run: |
-          git init -q .
-          git fetch -q --depth 1 "https://github.com/${GITHUB_REPOSITORY}" "$GITHUB_SHA"
-          git checkout -q FETCH_HEAD
+      - uses: actions/checkout@v5
 
       - name: Deploy index.html
         env:
