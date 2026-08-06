@@ -1,6 +1,6 @@
 # committobe.com
 
-Single-page static site. Introduces the commitment to stay human in an AI-driven world and links to [daretobuhuman.global](https://www.daretobuhuman.global).
+Single-page static site. Introduces the commitment to stay human in an AI-driven world and links to [daretobehuman.global](https://www.daretobehuman.global).
 
 One file, `index.html`. No build step, no external assets: system fonts, inline SVG, inline CSS/JS.
 
