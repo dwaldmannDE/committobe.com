@@ -4,6 +4,9 @@ name: Deploy
 "on":
   push:
     branches: [main]
+    paths:
+      - index.html
+      - .github/workflows/deploy.yml
 
 concurrency: deploy
 
